@@ -4,6 +4,7 @@ import {TypeOrmConfigService} from "../database/ormconfig.service";
 import {ConfigModule} from "./config/config.module";
 import {ConfigService} from "./config/config.service";
 import {BoardModule} from "./board/board.module";
+import {UserModule} from "./user/user.module";
 // import { AppController } from '../app.controller';
 // import { AppService } from '../app.service';
 
@@ -15,6 +16,7 @@ import {BoardModule} from "./board/board.module";
       inject: [ConfigService],
     }),
     ConfigModule,
+    UserModule,
     BoardModule
   ],
   // controllers: [AppController],

@@ -17,15 +17,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
             socketPath: this.configService.get('DB_SOCKET_PATH'),
             entities: ['dist/**/*.entity.js'],
             synchronize: true,
-            // synchronize: false,
         };
-        // if(this.configService.isEnv('production')){
-        //     config.extra = {
-        //         socketPath: this.configService.get('DB_SOCKET_PATH')
-        //     }
-        // }else if(this.configService.isEnv('development')){
-        //     config.port = parseInt(this.configService.get('DB_PORT')) || 3306
-        // }
         return config
     }
 }

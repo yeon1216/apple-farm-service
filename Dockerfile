@@ -12,4 +12,16 @@ RUN npm install
 COPY . .
 
 # 앱 실행
-RUN npm run start
+# RUN npm run start
+EXPOSE 8282
+CMD [ "npm", "run", "start" ]
+
+###########
+# 도커 명령어
+###########
+
+# 이미지 생성
+# docker build -t apple-farm-service-dockerizing .
+
+# 컨테이너 생성 및 실행
+# docker run -p 8282:8282 -d --name apple-farm-service apple-farm-service-dockerizing
