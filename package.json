@@ -18,7 +18,10 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -d src/migrations -n updateTable",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",
@@ -30,6 +33,7 @@
     "class-validator": "^0.12.2",
     "firebase-admin": "^9.4.2",
     "mysql": "^2.18.1",
+    "pg": "^8.5.1",
     "nestjs-firebase": "^1.0.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

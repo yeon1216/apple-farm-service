@@ -21,11 +21,10 @@ import {
     ApiTags
 } from "@nestjs/swagger";
 import {FindUserDto} from "./dto/find-user.dto";
-// import {isEmptyObject} from "../../utils/object";
 import {FirebaseProvider} from "../firebase/firebase.provider";
 
-@Controller('users')
-@ApiTags('사용자 api(users)')
+@Controller('api/v1/user')
+@ApiTags('사용자 api(user)')
 export class UserController {
 
     constructor(private userService: UserService, private firebaseProvider: FirebaseProvider) {
@@ -33,10 +32,10 @@ export class UserController {
 
     @Get()
     @ApiOperation({ description: '모든 User 조회' })
-    @ApiHeader({
-        name: '인증 헤더',
-        description: '"Admin 권한을 가진 사람만 접근 가능, Bearer token" 형식으로 전송, 그렇지 않으면 서버 쪽에서 authorization header에 접근 불가',
-    })
+    // @ApiHeader({
+    //     name: '인증 헤더',
+    //     description: '"Admin 권한을 가진 사람만 접근 가능, Bearer token" 형식으로 전송, 그렇지 않으면 서버 쪽에서 authorization header에 접근 불가',
+    // })
     @ApiOkResponse({type: ()=>User, isArray: true, description: '사용자 리스트'})
     async findAll(@Query() query: FindUserDto): Promise<User[]> {
         return this.userService.getUsers(query);

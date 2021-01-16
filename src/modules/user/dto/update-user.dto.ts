@@ -6,7 +6,7 @@ export class UpdateUserDto {
     @IsString()
     @IsNotEmpty()
     @ApiPropertyOptional()
-    username: string;
+    name: string;
     @IsOptional()
     @IsString()
     @IsNotEmpty()

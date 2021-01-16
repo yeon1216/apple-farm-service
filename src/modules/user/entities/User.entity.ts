@@ -1,42 +1,62 @@
 // import { CameraFiInfo } from "./CameraFiInfo.entity";
 // import { ScoredaInfo } from "./ScoredaInfo.entity";
-import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn,
+    CreateDateColumn, UpdateDateColumn} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
 
 @Entity()
 export class User {
+    
     @PrimaryGeneratedColumn()
-    @ApiProperty()
+    @ApiProperty({
+        type:Number,
+        description: 'PK',
+    })
     id: number;
+
     @Column({
         unique: true,
     })
-    @ApiProperty()
+    @ApiProperty({
+        type:String,
+        description: 'Firebase uid',
+    })
     uid: string;
+
     @Column({
         default: ''
     })
-    @ApiProperty()
-    username: string;
-    @Column({
-        default: ''
+    @ApiProperty({
+        type:String,
+        description: 'User email',
     })
-    @ApiProperty()
     email: string;
+
+    @Column({
+        default: ''
+    })
+    @ApiProperty({
+        type:String,
+        description: 'User name',
+    })
+    name: string;
+    
     @Column({
         unique: true,
-    })
-    @ApiProperty()
-    profileUrl: string;
-    @Column({
         default: ''
     })
+    @ApiProperty({
+        type:String,
+        description: 'User profile url',
+    })
+    profileUrl: string;
 
-    public static of(params: Partial<User>): User {
-        const user = new User();
+    @CreateDateColumn()
+    @ApiProperty()
+    createdAt: Date;
 
-        Object.assign(user, params);
+    @UpdateDateColumn()
+    @ApiProperty()
+    updatedAt: Date;
 
-        return user;
-    }
 }

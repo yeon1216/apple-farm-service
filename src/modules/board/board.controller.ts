@@ -13,8 +13,17 @@ import { BoardService } from './board.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
 import {Board} from "./entities/Board.entity";
+import {
+    ApiBadRequestResponse,
+    ApiConflictResponse,
+    ApiHeader,
+    ApiOkResponse,
+    ApiOperation, ApiParam,
+    ApiTags
+} from "@nestjs/swagger";
 
-@Controller('board')
+@Controller('api/v1/board')
+@ApiTags('게시판 api(board)')
 export class BoardController {
     constructor(private boardService: BoardService) {
     }

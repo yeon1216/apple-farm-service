@@ -28,10 +28,7 @@ export class UserService {
                 uid: createUserDto.uid,
             },
         });
-        /**
-         * @param {CreateUserDto} createUserDto - 유저 생성 Dto
-         * @returns {Promise<User>}
-         */
+
         if (userToCreate) {
             throw new ConflictException(Message.USER_ALREADY_EXISTS);
         }
@@ -39,7 +36,7 @@ export class UserService {
         const user = this.userRepository.create();
         user.uid = createUserDto.uid;
         user.email = createUserDto.email;
-        user.username = createUserDto.username;
+        user.name = createUserDto.name;
         user.profileUrl = createUserDto.profileUrl;
         return this.userRepository.save(user);
     }
@@ -115,7 +112,7 @@ export class UserService {
             throw new BadRequestException(Message.NOT_FOUND_USER_ITEM);
         }
 
-        userToUpdate.username = updateUserDto.username;
+        userToUpdate.name = updateUserDto.name;
         userToUpdate.profileUrl = updateUserDto.profileUrl;
 
         return this.userRepository.save(userToUpdate);

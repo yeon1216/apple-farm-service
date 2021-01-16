@@ -1,4 +1,5 @@
-import {Column, Entity, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToOne, PrimaryGeneratedColumn,
+        CreateDateColumn, UpdateDateColumn} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
 
 @Entity()
@@ -17,16 +18,12 @@ export class Board {
         default: ''
     })
     content: string;
-    @Column({
-        default: ''
-    })
 
+    @CreateDateColumn()
+    @ApiProperty()
+    createdAt: Date;
 
-    public static of(params: Partial<Board>): Board {
-        const board = new Board();
-
-        Object.assign(board, params);
-
-        return board;
-    }
+    @UpdateDateColumn()
+    @ApiProperty()
+    updatedAt: Date;
 }

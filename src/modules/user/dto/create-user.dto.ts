@@ -7,15 +7,16 @@ export class CreateUserDto {
     @ApiProperty({description: '시용자 firebase uid'})
     uid: string;
 
-    @IsOptional()
+    
     @IsString()
+    @IsOptional()
     @ApiPropertyOptional()
     email: string;
 
     @IsString()
     @IsOptional()
     @ApiPropertyOptional()
-    username: string;
+    name: string;
 
     @IsOptional()
     @IsString()
