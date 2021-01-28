@@ -8,6 +8,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm run build
+
 # 앱 소스 추가
 COPY . .
 

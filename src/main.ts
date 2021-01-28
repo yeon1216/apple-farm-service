@@ -1,14 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './modules/app.module';
-import {ValidationPipe} from "@nestjs/common";
-import {setupSwagger} from "./util/swagger";
+import { ValidationPipe } from '@nestjs/common';
+import { setupSwagger } from './util/swagger';
 
 // master에서 작성
 // 1
 // 2
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {cors: true});
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.useGlobalPipes(new ValidationPipe());
   // app.useGlobalPipes(new ValidationPipe({
@@ -22,8 +22,3 @@ async function bootstrap() {
   await app.listen(8282);
 }
 bootstrap();
-
-
-
-
-// test branch 에서 적음
