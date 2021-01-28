@@ -26,3 +26,9 @@ CMD [ "node", "dist/src/main"]
 
 # 컨테이너 생성 및 실행
 # docker run -p 8282:8282 -d --name apple-farm-service apple-farm-service-dockerizing
+
+# 도커 이미지 전체 삭제
+# docker rmi $(docker images -q)
+
+# 모든 컨테이터 삭제
+# docker rm --force $(docker ps -a -q)
