@@ -8,7 +8,7 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN npm run build
+RUN nest build
 
 # 앱 소스 추가
 COPY . .
