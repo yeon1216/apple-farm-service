@@ -8,10 +8,10 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN npm run build
-
 # 앱 소스 추가
 COPY . .
+
+RUN npm run build
 
 # 앱 실행
 EXPOSE 8282
