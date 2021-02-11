@@ -15,7 +15,8 @@ RUN npm run build
 
 # 앱 실행
 EXPOSE 8282
-CMD [ "npm", "run", "start:prod"]
+#CMD [ "npm", "run", "start:prod"]
+RUN npm run start:prod
 
 ###########
 # 도커 명령어
