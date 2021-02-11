@@ -32,3 +32,4 @@ CMD [ "npm", "run", "start:prod"]
 
 # 모든 컨테이터 삭제
 # docker rm --force $(docker ps -a -q)
+# cd test
