@@ -1,62 +1,67 @@
 // import { CameraFiInfo } from "./CameraFiInfo.entity";
 // import { ScoredaInfo } from "./ScoredaInfo.entity";
-import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn,
-    CreateDateColumn, UpdateDateColumn} from "typeorm";
-import {ApiProperty} from "@nestjs/swagger";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class User {
-    
-    @PrimaryGeneratedColumn()
-    @ApiProperty({
-        type:Number,
-        description: 'PK',
-    })
-    id: number;
+  @PrimaryGeneratedColumn()
+  @ApiProperty({
+    type: Number,
+    description: 'PK',
+  })
+  id: number;
 
-    @Column({
-        unique: true,
-    })
-    @ApiProperty({
-        type:String,
-        description: 'Firebase uid',
-    })
-    uid: string;
+  @Column({
+    unique: true,
+  })
+  @ApiProperty({
+    type: String,
+    description: 'Firebase uid',
+  })
+  uid: string;
 
-    @Column({
-        default: ''
-    })
-    @ApiProperty({
-        type:String,
-        description: 'User email',
-    })
-    email: string;
+  @Column({
+    default: '',
+  })
+  @ApiProperty({
+    type: String,
+    description: 'User email',
+  })
+  email: string;
 
-    @Column({
-        default: ''
-    })
-    @ApiProperty({
-        type:String,
-        description: 'User name',
-    })
-    name: string;
-    
-    @Column({
-        unique: true,
-        default: ''
-    })
-    @ApiProperty({
-        type:String,
-        description: 'User profile url',
-    })
-    profileUrl: string;
+  @Column({
+    default: '',
+  })
+  @ApiProperty({
+    type: String,
+    description: 'User name',
+  })
+  name: string;
 
-    @CreateDateColumn()
-    @ApiProperty()
-    createdAt: Date;
+  @Column({
+    unique: true,
+    default: '',
+  })
+  @ApiProperty({
+    type: String,
+    description: 'User profile url',
+  })
+  profileUrl: string;
 
-    @UpdateDateColumn()
-    @ApiProperty()
-    updatedAt: Date;
+  @CreateDateColumn()
+  @ApiProperty()
+  createdAt: Date;
 
+  @UpdateDateColumn()
+  @ApiProperty()
+  updatedAt: Date;
 }
